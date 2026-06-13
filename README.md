@@ -181,22 +181,7 @@ These generated artifacts are ignored by Git by default. Regenerate them locally
 - Some existing scripts use local paths from the original project directory. If you clone the project into a different folder, update paths in `run_pipeline.ps1`, `run.bat`, or run the Python files directly from the project root.
 - Selenium scraping may require a compatible browser and driver setup.
 
-## GitHub Push Guide
 
-From the project folder:
 
-```powershell
-git init
-git status
-git add .
-git commit -m "Initial commit"
-git branch -M main
-git remote add origin https://github.com/<your-username>/<your-repository-name>.git
-git push -u origin main
-```
 
-If Git asks for login, use GitHub authentication in the browser or a personal access token.
 
-## License
-
-Add a license before publishing if you want others to reuse the code. MIT is a common choice for open-source projects.
