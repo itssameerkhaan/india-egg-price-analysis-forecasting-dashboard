@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Egg Price Intelligence</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div>
+        <p class="eyebrow">Egg Price Intelligence</p>
+        <h1>Predictions, validation, and market data overview</h1>
+      </div>
+      <div class="identity">
+        <span>USER</span>
+        <strong id="username">Sameer9696196395</strong>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="hero-copy">
+          <p class="kicker">Barwala and multi-city egg market pipeline</p>
+          <h2>Track scraped data, compare model predictions, and review validation charts in one workspace.</h2>
+          <p>
+            Run the data collection pipeline or validate the forecasting model, then review metrics,
+            chart outputs, and sample datasets without opening notebooks manually.
+          </p>
+          <div id="runSummary" class="run-summary">No forecast run summary found yet.</div>
+          <div class="actions">
+            <button id="showScrap" class="primary">DATA SCRAP</button>
+            <button id="showValidation" class="secondary">VALIDATION</button>
+          </div>
+        </div>
+        <div class="metrics-strip" id="metricsStrip"></div>
+      </section>
+
+      <section class="workspace">
+        <nav class="tabs">
+          <button class="tab active" data-panel="overviewPanel">Overview</button>
+          <button class="tab" data-panel="scrapPanel">Data Scrap</button>
+          <button class="tab" data-panel="validationPanel">Validation</button>
+          <button class="tab" data-panel="chartsPanel">Charts</button>
+          <button class="tab" data-panel="datasetsPanel">Datasets</button>
+        </nav>
+
+        <section id="overviewPanel" class="panel active">
+          <div class="section-head">
+            <h3>Pipeline Overview</h3>
+            <p>The application reads the existing project outputs and runs the same scripts used by the local pipeline.</p>
+          </div>
+          <div class="flow-grid" id="scrapFlow"></div>
+        </section>
+
+        <section id="scrapPanel" class="panel">
+          <div class="section-head">
+            <h3>Data Scrap</h3>
+            <p>Runs `run_pipeline.ps1`: egg price scrape, festival generation, weather scrape, and feature extraction.</p>
+          </div>
+          <form id="scrapForm" class="form-grid scrap-config-grid">
+            <label>
+              Start Date
+              <input id="scrapStartDate" type="date" />
+            </label>
+            <label>
+              End Date
+              <input id="scrapEndDate" type="date" />
+            </label>
+            <label>
+              Years Back
+              <input id="scrapYearsBack" type="number" min="1" max="20" />
+            </label>
+            <label>
+              Headless Browser
+              <select id="scrapHeadless">
+                <option value="False">False</option>
+                <option value="True">True</option>
+              </select>
+            </label>
+            <label>
+              Max Wait Seconds
+              <input id="scrapMaxWaitTime" type="number" min="5" max="120" />
+            </label>
+            <label>
+              Save Formats
+              <select id="scrapSaveFormats">
+                <option value="csv">CSV</option>
+                <option value="csv, excel">CSV + Excel</option>
+                <option value="csv, excel, pivot">CSV + Excel + Pivot</option>
+              </select>
+            </label>
+            <label>
+              Overwrite
+              <select id="scrapOverwrite">
+                <option value="False">False</option>
+                <option value="True">True</option>
+              </select>
+            </label>
+            <label>
+              Website Delay
+              <input id="scrapWebsiteDelay" type="number" min="0" max="30" step="0.1" />
+            </label>
+            <label>
+              Weather Delay
+              <input id="scrapWeatherDelay" type="number" min="0" max="120" step="0.1" />
+            </label>
+            <button id="runScrap" class="primary" type="submit" data-idle-text="Run Data Scrap Pipeline">Run Data Scrap Pipeline</button>
+            <button id="stopScrap" class="secondary" style="display:none;" type="button">Stop Data Scrap</button>
+          </form>
+          <p class="hint">If Start Date is empty, the scrapers use Years Back. These are the important values from `data_scrap/config.ini`.</p>
+          <pre id="scrapLog" class="log-box">No data scrap job started.</pre>
+        </section>
+
+        <section id="validationPanel" class="panel">
+          <div class="section-head">
+            <h3>Validation</h3>
+            <p>Runs `analysis/model_training_comparison.py` and refreshes comparison data plus chart HTML outputs.</p>
+          </div>
+          <div id="validationSummary" class="validation-summary"></div>
+          <form id="validationForm" class="form-grid validation-only-city">
+            <label>
+              City
+              <select id="city"></select>
+            </label>
+            <button id="runValidation" class="primary" type="submit" data-idle-text="Run Validation">Run Validation</button>
+            <button id="stopValidation" class="secondary" style="display:none;" type="button">Stop Validation</button>
+            <span class="hint">Split year is detected automatically as max data year minus 1. Forecast is always recursive for 365 days.</span>
+          </form>
+          <pre id="validationLog" class="log-box">No validation job started.</pre>
+        </section>
+
+        <section id="chartsPanel" class="panel">
+          <div class="section-head">
+            <h3>Analysis Charts</h3>
+            <p>Charts are loaded from `analysis/analysis_chart` and embedded below for review.</p>
+          </div>
+          <div id="chartGrid" class="chart-grid"></div>
+        </section>
+
+        <section id="datasetsPanel" class="panel">
+          <div class="section-head">
+            <h3>Sample Dataset Overview</h3>
+            <p>Preview of raw, feature, prediction, and comparison files generated by the project.</p>
+          </div>
+          <div id="datasetGrid" class="dataset-grid"></div>
+        </section>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
