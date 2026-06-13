@@ -23,7 +23,8 @@ This project contains:
 
 ## Dashboard Preview
 
-![Dashboard Preview](https://github.com/user-attachments/assets/8db7c731-a256-42fd-aa2e-1081678d22c9)
+![Dashboard Preview](<img width="1287" height="531" alt="image" src="https://github.com/user-attachments/assets/6722619c-cb39-465f-9b89-cd08f5608f30" />
+)
 
 ## Forecast Chart Example
 
