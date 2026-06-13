@@ -21,7 +21,7 @@ This project contains:
 
 ## Dashboard Preview
 
-![Dashboard Preview](<img width="1918" height="872" alt="image" src="https://github.com/user-attachments/assets/775c27cb-a0bd-4a11-84b1-493952688447" />
+![Dashboard Preview](<img width="1918" height="872" alt="image" src="https://github.com/user-attachments/assets/8db7c731-a256-42fd-aa2e-1081678d22c9" />
 )
 
 ## Forecast Chart Example
