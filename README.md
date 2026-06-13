@@ -18,6 +18,16 @@ This project contains:
 - Recursive forecast outputs and comparison charts
 - A lightweight local web app for running the pipeline and viewing results
 
+
+## Dashboard Preview
+
+![Dashboard Preview](docs/images/dashboard-preview.png)
+
+## Forecast Chart Example
+
+![Forecast Chart](docs/images/forecast-chart.png)
+
+
 ## Project Structure
 
 ```text
