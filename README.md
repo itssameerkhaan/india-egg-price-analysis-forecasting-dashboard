@@ -21,11 +21,14 @@ This project contains:
 
 ## Dashboard Preview
 
-![Dashboard Preview](docs/images/dashboard-preview.png)
+![Dashboard Preview](<img width="1918" height="872" alt="image" src="https://github.com/user-attachments/assets/775c27cb-a0bd-4a11-84b1-493952688447" />
+)
 
 ## Forecast Chart Example
 
-![Forecast Chart](docs/images/forecast-chart.png)
+![Forecast Chart](<img width="1887" height="833" alt="image" src="https://github.com/user-attachments/assets/3b4fe5f6-ef54-4c2a-8297-3a13819cf2ec" /> <img width="1885" height="823" alt="image" src="https://github.com/user-attachments/assets/50486e3e-9561-4d0d-a5a7-11d0b8843f4a" />
+
+)
 
 
 ## Project Structure
